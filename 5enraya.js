@@ -185,7 +185,7 @@ function checkGameOver() {
   }
 }
 
-// Felicita al ganador
+// Felicita al ganador y reinicia el juego
 function congratulateWinner() {
   if (winner !== null) {
     textSize(30);
@@ -193,6 +193,7 @@ function congratulateWinner() {
     textAlign(CENTER);
     text("CONGRATULATIONS!", width / 2, height - squareSize);
     noLoop();
+    setTimeout(resetBoard, 2000);
   } else {
     console.log("It's a tie!");
   }
@@ -210,7 +211,9 @@ function resetBoard() {
   currentPlayer = 1;
   gameOver = false;
   winner = null;
+  loop();
 }
+
 
 
 
